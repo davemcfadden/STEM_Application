@@ -1,0 +1,10 @@
+c:\users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\obj\x86\Debug\STEM_Application.Properties.Resources.resources
+c:\users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\obj\x86\Debug\STEM Application.csproj.GenerateResource.Cache
+c:\users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\bin\Debug\STEM Application.exe
+c:\users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\bin\Debug\STEM Application.pdb
+c:\users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\obj\x86\Debug\STEM Application.exe
+c:\users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\obj\x86\Debug\STEM Application.pdb
+c:\users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\bin\Debug\System.Data.SQLite.xml
+c:\users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\obj\x86\Debug\STEM Application.csprojResolveAssemblyReference.cache
+c:\users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\obj\x86\Debug\STEM_Application.Home.resources
+C:\Users\n0237982\documents\visual studio 2010\Projects\STEM Application\STEM Application\obj\x86\Debug\STEM_Application.LoginAndSignUp.resources
