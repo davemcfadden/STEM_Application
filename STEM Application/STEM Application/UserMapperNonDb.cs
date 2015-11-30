@@ -10,27 +10,27 @@ namespace STEM_Application
 
 
         //declare static dictionary
-        Dictionary<String, String> usersMap = new Dictionary<String, String>
+        Dictionary<string, string> usersMap = new Dictionary<string, string>
             {
-                {"Dave@dave.com","password"},
-                {"Bob@bob.com","password"},
-                {"Simon@simon.com","password"}
+                {"dave@dave.com","password"},
+                {"bob@bob.com","password"},
+                {"simon@simon.com","password"}
             };
 
         //declare static array
-        String [] usersArray = new String[] 
+        string [] usersArray = new string[] 
         {
-            "Dave@dave.com",
-            "Bob@bob.com",
-            "Simon@simon.com"
+            "dave@dave.com",
+            "bob@bob.com",
+            "simon@simon.com"
         }; 
 
         //declare static list
-         private static List<String> usersList = new List<String>()
+         private static List<string> usersList = new List<string>()
         {
-                "Dave@dave.com",
-                "Bob@bob.com",
-                "Simon@simon.com"
+                "dave@dave.com",
+                "bob@bob.com",
+                "simon@simon.com"
         };
 
 
@@ -43,34 +43,34 @@ namespace STEM_Application
 
             usersArray[arrayLength] = pUser.Email;
 
-            foreach (String i in usersArray)
+            foreach (string i in usersArray)
             {
-                Console.WriteLine("Email address is : " +  i);
+                Console.WriteLine("Array email address is : " +  i);
             }
 
             //add to dictionary
             usersMap.Add(pUser.Email, pUser.Password);
-            foreach (KeyValuePair<String, String> i in usersMap)
+            foreach (KeyValuePair<string, string> i in usersMap)
             {
-                Console.WriteLine("Email address is : " + i.Key + "password is : " + i.Value);
+                Console.WriteLine("Dictionary email address is : " + i.Key + "password is : " + i.Value);
             }
 
             //add to list
             usersList.Add(pUser.Email);
-            foreach (String i in usersList)
+            foreach (string i in usersList)
             {
-                Console.WriteLine("Email address is : " + i);
+                Console.WriteLine("List email address is : " + i);
             }
         }
 
 
-        public Boolean validateUser(User pUser)
+        public bool validateUser(User pUser)
         {
-            Boolean isUserValid = false;
+            bool isUserValid = false;
 
-            Boolean bol1 = validateUserByArray(pUser);
-            Boolean bol2 = validateUserByMap (pUser);
-            Boolean bol3 = validateUserByList(pUser);
+            bool bol1 = validateUserByArray(pUser);
+            bool bol2 = validateUserByMap (pUser);
+            bool bol3 = validateUserByList(pUser);
 
             if(bol1 && bol2 && bol3)
             {
@@ -81,13 +81,13 @@ namespace STEM_Application
 
         }
 
-        private Boolean validateUserByArray(User pUser)
+        private bool validateUserByArray(User pUser)
         {
-            Boolean valid = false;
+            bool valid = false;
 
-            foreach (String i in usersArray)
+            foreach (string i in usersArray)
             {
-                if (i.Equals(pUser.Email, StringComparison.InvariantCultureIgnoreCase))
+                if (i.Equals(pUser.Email))
                 {
                     valid = true;
                     break;
@@ -97,13 +97,13 @@ namespace STEM_Application
         }
 
 
-        private Boolean validateUserByMap(User pUser)
+        private bool validateUserByMap(User pUser)
         {
-            Boolean valid = false;
+            bool valid = false;
 
-            foreach (KeyValuePair<String, String> i in usersMap)
+            foreach (KeyValuePair<string, string> i in usersMap)
             {
-                if (i.Key.Equals(pUser.Email, StringComparison.InvariantCultureIgnoreCase) && i.Value.Equals(pUser.Password))
+                if (i.Key.Equals(pUser.Email) && i.Value.Equals(pUser.Password))
                 {
                     valid = true;
                     break;
@@ -114,13 +114,13 @@ namespace STEM_Application
         }
 
 
-        private Boolean validateUserByList(User pUser)
+        private bool validateUserByList(User pUser)
         {
-            Boolean valid = false;
+            bool valid = false;
 
-            foreach (String i in usersList)
+            foreach (string i in usersList)
             {
-                if (i.Equals(pUser.Email, StringComparison.InvariantCultureIgnoreCase))
+                if (i.Equals(pUser.Email))
                 {
                     valid = true;
                     break;

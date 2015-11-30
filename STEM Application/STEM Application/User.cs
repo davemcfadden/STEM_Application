@@ -7,26 +7,32 @@ namespace STEM_Application
 {
     class User
     {
-        private String name;
+        private string name;
 
-        public String Name
+        public string Name
         {
             get { return name; }
             set { name = value; }
         }
-        private String email;
+        private string email;
 
-        public String Email
+        public string Email
         {
             get { return email; }
             set { email = value; }
         }
-        private String password;
+        private string password;
 
-        public String Password
+        public string Password
         {
             get { return password; }
             set { password = value; }
+        }
+
+
+        public string toString()
+        {
+            return name + email + password;
         }
     }
 }

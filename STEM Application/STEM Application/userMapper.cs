@@ -6,7 +6,7 @@ using System.Data.SQLite;
 
 namespace STEM_Application
 {
-    class userMapper
+    class UserMapper
     {
 
         private SQLiteConnection sqlConnection;
@@ -30,7 +30,7 @@ namespace STEM_Application
             sqlCommand.Parameters.Add(new SQLiteParameter("@password", pUser.Password));
 
             sqlCommand.ExecuteNonQuery();
-            Console.Write("User inserted : " + pUser.ToString());
+            Console.Write("User inserted : " + pUser.toString());
             sqlConnection.Close();
 
             return pUser;

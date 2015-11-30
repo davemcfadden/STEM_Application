@@ -12,9 +12,9 @@ using System.IO;
 namespace STEM_Application{
     public partial class LoginAndSignUp : Form {
 
-        private List<String> errorMessages= new  List<String>();
+        private List<string> errorMessages= new  List<string>();
 
-        private String loginAttemptsFile = "C:\\Users\\n0237982\\Documents\\STEM\\loginAttempts.txt";
+        private string loginAttemptsFile = "C:\\Users\\n0237982\\Documents\\STEM\\loginAttempts.txt";
 
        
 
@@ -29,7 +29,7 @@ namespace STEM_Application{
             User currentUser = createSignUpUser();
             if (validate(currentUser))
             {
-                userService signUpService = new userServiceImpl() ;
+                IUserService signUpService = new UserService() ;
                 signUpService.addNewUser(currentUser);
                 this.Hide();
                 Home home = new Home();
@@ -52,9 +52,9 @@ namespace STEM_Application{
         private void userSelectsLogin(object sender, EventArgs e)
         {
             User currentUser = createLoginUser();
-            userService loginService = new userServiceImpl();
+            IUserService loginService = new UserService();
 
-            Boolean validUser = loginService.validateUser(currentUser);
+            bool validUser = loginService.validateUser(currentUser);
 
             if (validUser)
             {
@@ -83,7 +83,7 @@ namespace STEM_Application{
 
         private int readLoginAttempts()
         {
-            String line;
+            string line;
             int attempts = 0;
             StreamReader sr;
             try
@@ -131,7 +131,7 @@ namespace STEM_Application{
             attempts += 1;
 
             Console.WriteLine("Updated login attempts : " + attempts);
-            file.WriteLine(attempts.ToString());
+            file.WriteLine(attempts);
 
             file.Close();
 
@@ -178,13 +178,13 @@ namespace STEM_Application{
         }
 
 
-        private Boolean validate(User currentUser)
+        private bool validate(User currentUser)
         {
-            Boolean isValid = true;
+            bool isValid = true;
 
             if( !validateEmailFormat(currentUser) || !doPasswordsMatch() )
             {
-                foreach(String i in errorMessages)
+                foreach(string i in errorMessages)
                 {
                     validationErrors.View = View.List;
                     this.validationErrors.Items.Add(i);
@@ -196,9 +196,9 @@ namespace STEM_Application{
         }
       
 
-        private Boolean doPasswordsMatch()
+        private bool doPasswordsMatch()
         {
-            Boolean returnValue = true;
+            bool returnValue = true;
             if (!password_input.Text.Equals(confirmpassword_input.Text))
             {
                 errorMessages.Add("Passwords do not match");
@@ -211,9 +211,9 @@ namespace STEM_Application{
 
 
 
-        private Boolean validateEmailFormat(User pUser)
+        private bool validateEmailFormat(User pUser)
         {
-            Boolean isValid = false;
+            bool isValid = false;
 
             string email = pUser.Email;
             System.Text.RegularExpressions.Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
