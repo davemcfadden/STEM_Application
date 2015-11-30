@@ -14,7 +14,7 @@ namespace STEM_Application
         private SQLiteDataReader sqlReader;
             
 
-        public User addNewUser(User pUser)
+        public User AddNewUser(User pUser)
         {
             BuildSqlLiteDb sql = new BuildSqlLiteDb();
             // create a new database connection:
@@ -38,7 +38,7 @@ namespace STEM_Application
 
 
 
-        public int validateUser(User pUser)
+        public int ValidateUser(User pUser)
         {
             BuildSqlLiteDb sql = new BuildSqlLiteDb();
             // create a new database connection:

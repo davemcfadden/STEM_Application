@@ -8,9 +8,9 @@ namespace STEM_Application
     interface IUserService
     {
 
-       User addNewUser(User pUser);
+       User AddNewUser(User pUser);
 
-       Boolean validateUser(User pUSer);
+       Boolean ValidateUser(User pUSer);
 
     }
 }

@@ -34,7 +34,7 @@ namespace STEM_Application
         };
 
 
-        public void addNewUser(User pUser)
+        public void AddNewUser(User pUser)
         {
             //add to array
 
@@ -64,13 +64,13 @@ namespace STEM_Application
         }
 
 
-        public bool validateUser(User pUser)
+        public bool ValidateUser(User pUser)
         {
             bool isUserValid = false;
 
-            bool bol1 = validateUserByArray(pUser);
-            bool bol2 = validateUserByMap (pUser);
-            bool bol3 = validateUserByList(pUser);
+            bool bol1 = ValidateUserByArray(pUser);
+            bool bol2 = ValidateUserByMap (pUser);
+            bool bol3 = ValidateUserByList(pUser);
 
             if(bol1 && bol2 && bol3)
             {
@@ -81,7 +81,7 @@ namespace STEM_Application
 
         }
 
-        private bool validateUserByArray(User pUser)
+        private bool ValidateUserByArray(User pUser)
         {
             bool valid = false;
 
@@ -97,7 +97,7 @@ namespace STEM_Application
         }
 
 
-        private bool validateUserByMap(User pUser)
+        private bool ValidateUserByMap(User pUser)
         {
             bool valid = false;
 
@@ -114,7 +114,7 @@ namespace STEM_Application
         }
 
 
-        private bool validateUserByList(User pUser)
+        private bool ValidateUserByList(User pUser)
         {
             bool valid = false;
 

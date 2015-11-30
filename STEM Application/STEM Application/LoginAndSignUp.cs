@@ -26,11 +26,11 @@ namespace STEM_Application{
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            User currentUser = createSignUpUser();
-            if (validate(currentUser))
+            User currentUser = CreateSignUpUser();
+            if (Validate(currentUser))
             {
                 IUserService signUpService = new UserService() ;
-                signUpService.addNewUser(currentUser);
+                signUpService.AddNewUser(currentUser);
                 this.Hide();
                 Home home = new Home();
                 home.Show();
@@ -51,21 +51,21 @@ namespace STEM_Application{
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            User currentUser = createLoginUser();
+            User currentUser = CreateLoginUser();
             IUserService loginService = new UserService();
 
-            bool validUser = loginService.validateUser(currentUser);
+            bool validUser = loginService.ValidateUser(currentUser);
 
             if (validUser)
             {
-                resetLoginAttempts();
+                ResetLoginAttempts();
                 this.Hide();
                 Home home = new Home();
                 home.Show();
             }
             else
             {
-                addLoginAttempts(readLoginAttempts());
+                AddLoginAttempts(ReadLoginAttempts());
                 this.loginValidation.Items.Clear();
                 this.loginValidation.Items.Add("Email or password is incorrect");
                 Console.WriteLine("Logging error : Email or password is incorrect");
@@ -75,13 +75,13 @@ namespace STEM_Application{
         }
 
 
-        private void formClosing_Click(object sender, FormClosedEventArgs e)
+        private void FormClosing_Click(object sender, FormClosedEventArgs e)
         {
-            resetLoginAttempts();
+            ResetLoginAttempts();
         }
 
 
-        private int readLoginAttempts()
+        private int ReadLoginAttempts()
         {
             string line;
             int attempts = 0;
@@ -122,7 +122,7 @@ namespace STEM_Application{
         }
 
 
-        private void addLoginAttempts(int attempts)
+        private void AddLoginAttempts(int attempts)
         {
             // Write the string to a file.
             System.IO.StreamWriter file = new System.IO.StreamWriter(loginAttemptsFile);
@@ -138,7 +138,7 @@ namespace STEM_Application{
         }
 
 
-        private void resetLoginAttempts()
+        private void ResetLoginAttempts()
         {
             // Write the string to a file.
             System.IO.StreamWriter file = new System.IO.StreamWriter(loginAttemptsFile);
@@ -151,7 +151,7 @@ namespace STEM_Application{
         }
     
 
-        private User createSignUpUser()
+        private User CreateSignUpUser()
         {
             User currentUser = new User();
             currentUser = new User();
@@ -166,7 +166,7 @@ namespace STEM_Application{
         }
 
 
-        private User createLoginUser()
+        private User CreateLoginUser()
         {
             User currentUser = new User();
             currentUser.Email = loginEmail_Input.Text;
@@ -178,11 +178,11 @@ namespace STEM_Application{
         }
 
 
-        private bool validate(User currentUser)
+        private bool Validate(User currentUser)
         {
             bool isValid = true;
 
-            if( !validateEmailFormat(currentUser) || !doPasswordsMatch() )
+            if( !ValidateEmailFormat(currentUser) || !DoPasswordsMatch() )
             {
                 foreach(string i in errorMessages)
                 {
@@ -196,7 +196,7 @@ namespace STEM_Application{
         }
       
 
-        private bool doPasswordsMatch()
+        private bool DoPasswordsMatch()
         {
             bool returnValue = true;
             if (!password_input.Text.Equals(confirmpassword_input.Text))
@@ -211,7 +211,7 @@ namespace STEM_Application{
 
 
 
-        private bool validateEmailFormat(User pUser)
+        private bool ValidateEmailFormat(User pUser)
         {
             bool isValid = false;
 

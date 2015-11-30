@@ -11,18 +11,18 @@ namespace STEM_Application
 
         public UserMapperNonDb mapperNonDb = new UserMapperNonDb();
 
-        public User addNewUser(User pUser)
+        public User AddNewUser(User pUser)
         {
             //Uncomment the following for SQLLite Database,
            //mapper.addNewUser(pUser);
 
-            mapperNonDb.addNewUser(pUser);
+            mapperNonDb.AddNewUser(pUser);
 
             return pUser;
         }
 
 
-        public bool validateUser(User pUser)
+        public bool ValidateUser(User pUser)
         {
             bool isValid = false;
             
@@ -33,7 +33,7 @@ namespace STEM_Application
             //  isValid = true;
             //}
 
-            isValid = mapperNonDb.validateUser(pUser);
+            isValid = mapperNonDb.ValidateUser(pUser);
             return isValid;
         }
 
