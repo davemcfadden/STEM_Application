@@ -339,6 +339,7 @@
             this.Controls.Add(this.SignUp);
             this.Name = "LoginAndSignUp";
             this.Text = "STEM System";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosingEvent);
             this.SignUp.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

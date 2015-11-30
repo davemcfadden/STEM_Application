@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace STEM_Application{
     public partial class LoginAndSignUp : Form {
 
         private List<String> errorMessages= new  List<String>();
+
+        private String loginAttemptsFile = "C:\\Users\\n0237982\\Documents\\STEM\\loginAttempts.txt";
 
        
 
@@ -55,18 +58,98 @@ namespace STEM_Application{
 
             if (validUser)
             {
+                resetLoginAttempts();
                 this.Hide();
                 Home home = new Home();
                 home.Show();
             }
             else
             {
+                addLoginAttempts(readLoginAttempts());
+                this.loginValidation.Items.Clear();
                 this.loginValidation.Items.Add("Email or password is incorrect");
                 Console.WriteLine("Logging error : Email or password is incorrect");
             }
          
 
         }
+
+
+        private void formClosingEvent(object sender, FormClosedEventArgs e)
+        {
+            resetLoginAttempts();
+        }
+
+
+        private int readLoginAttempts()
+        {
+            String line;
+            int attempts = 0;
+            StreamReader sr;
+            try
+            {
+                sr = new StreamReader(loginAttemptsFile);
+              
+                //Read the first line of text
+                line =  sr.ReadLine();
+
+                //Continue to read until you reach end of file
+              /*  while (line != null)
+                {
+                    //Read the next line
+                    line = sr.ReadLine();
+                }
+               * */
+
+                Console.WriteLine("Number of attempts in file : " + line);
+                if(line != null)
+                {
+                //convert to int
+                attempts = Int32.Parse(line);
+                }
+              
+
+                //close the file
+                sr.Close();
+                Console.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception when reading file : " + e.Message);
+            }
+
+            return attempts;
+        }
+
+
+        private void addLoginAttempts(int attempts)
+        {
+            // Write the string to a file.
+            System.IO.StreamWriter file = new System.IO.StreamWriter(loginAttemptsFile);
+            
+            //add to the attempts file
+            attempts += 1;
+
+            Console.WriteLine("Updated login attempts : " + attempts);
+            file.WriteLine(attempts.ToString());
+
+            file.Close();
+
+        }
+
+
+        private void resetLoginAttempts()
+        {
+            // Write the string to a file.
+            System.IO.StreamWriter file = new System.IO.StreamWriter(loginAttemptsFile);
+
+            Console.WriteLine("Resetting login attempts");
+            file.WriteLine(0);
+
+            file.Close();
+
+        }
+    
 
         private User createSignUpUser()
         {
@@ -149,6 +232,7 @@ namespace STEM_Application{
             return isValid;
         }
 
+      
        
        
 
