@@ -93,7 +93,7 @@
             this.button1.TabIndex = 29;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.userSelectsLogin);
+            this.button1.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // loginEmail_label
             // 
@@ -224,7 +224,7 @@
             this.submit.TabIndex = 16;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
-            this.submit.Click += new System.EventHandler(this.userSelectsSignUp);
+            this.submit.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // name_input
             // 
@@ -329,7 +329,7 @@
             this.cancel.TabIndex = 17;
             this.cancel.Text = "Clear Fields";
             this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.userSelectsClearFields);
+            this.cancel.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
             // LoginAndSignUp
             // 
@@ -339,7 +339,7 @@
             this.Controls.Add(this.SignUp);
             this.Name = "LoginAndSignUp";
             this.Text = "STEM System";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosingEvent);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosing_Click);
             this.SignUp.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

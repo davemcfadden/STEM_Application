@@ -24,7 +24,7 @@ namespace STEM_Application{
             //build.createDatabase();
         }
 
-        private void userSelectsSignUp(object sender, EventArgs e)
+        private void btnSignUp_Click(object sender, EventArgs e)
         {
             User currentUser = createSignUpUser();
             if (validate(currentUser))
@@ -38,7 +38,7 @@ namespace STEM_Application{
            
         }
 
-        private void userSelectsClearFields(object sender, EventArgs e)
+        private void btnClearFields_Click(object sender, EventArgs e)
         {
             name_input.Clear();
             email_input.Clear();
@@ -49,7 +49,7 @@ namespace STEM_Application{
         }
 
 
-        private void userSelectsLogin(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             User currentUser = createLoginUser();
             IUserService loginService = new UserService();
@@ -75,7 +75,7 @@ namespace STEM_Application{
         }
 
 
-        private void formClosingEvent(object sender, FormClosedEventArgs e)
+        private void formClosing_Click(object sender, FormClosedEventArgs e)
         {
             resetLoginAttempts();
         }
