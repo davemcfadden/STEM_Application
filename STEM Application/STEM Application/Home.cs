@@ -20,7 +20,7 @@ namespace STEM_Application
 
        
 
-        private void logout_event(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Hide();
             LoginAndSignUp login = new LoginAndSignUp();
