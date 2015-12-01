@@ -85,37 +85,39 @@ namespace STEM_Application{
         {
             string line;
             int attempts = 0;
-            StreamReader sr;
+            StreamReader sr = null ;
             try
             {
                 sr = new StreamReader(loginAttemptsFile);
-              
+
                 //Read the first line of text
-                line =  sr.ReadLine();
+                line = sr.ReadLine();
 
                 //Continue to read until you reach end of file
-              /*  while (line != null)
-                {
-                    //Read the next line
-                    line = sr.ReadLine();
-                }
-               * */
+                /*  while (line != null)
+                  {
+                      //Read the next line
+                      line = sr.ReadLine();
+                  }
+                 * */
 
                 Console.WriteLine("Number of attempts in file : " + line);
-                if(line != null)
+                if (line != null)
                 {
-                //convert to int
-                attempts = Int32.Parse(line);
+                    //convert to int
+                    attempts = Int32.Parse(line);
                 }
-              
-
-                //close the file
-                sr.Close();
-                Console.ReadLine();
             }
             catch (Exception e)
             {
                 Console.WriteLine("Exception when reading file : " + e.Message);
+            }
+            finally
+            {
+                if(sr !=null)
+                {
+                    sr.Close();
+                }
             }
 
             return attempts;
