@@ -1,4 +1,4 @@
-# STEM_Application
+# Stem-Application
 
 Simple C#/Windows form application to be used for education purposes only.
 
