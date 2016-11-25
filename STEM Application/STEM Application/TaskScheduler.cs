@@ -13,6 +13,9 @@ namespace STEM_Application
 
         public void runTask()
         {
+            
+            //DateTime.Now.AddDays(1).Date.AddHours(1).Date.AddMinutes(32) - DateTime.Now).TotalMilliseconds;
+          timerUsingTime.Elapsed += SomeMethodRunsAt1600;
             // Create a timer with a two second interval.
             aTimer = new System.Timers.Timer(2000);
             // Hook up the Elapsed event for the timer. 
