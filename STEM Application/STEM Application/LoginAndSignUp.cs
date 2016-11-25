@@ -14,7 +14,7 @@ namespace STEM_Application{
 
         private List<string> errorMessages= new  List<string>();
 
-        private string loginAttemptsFile = "C:\\Users\\n0237982\\Documents\\STEM\\loginAttempts.txt";
+        private string loginAttemptsFile = "C:\\Users\\Dave\\Documents\\STEM\\loginAttempts.txt";
 
        
 
